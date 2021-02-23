@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercicio-k8s-golang  
+spec:
+  selector:
+    matchLabels:
+      app: exercicio-k8s-golang
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: exercicio-k8s-golang
+    spec:
+      containers:
+        - name: app
+          image: leoviveiros/exercicio-k8s-golang:latest
+          ports:
+            - containerPort: 8000
